@@ -1,0 +1,40 @@
+﻿<div>
+	<div class="card_title">
+		<h2 class="pull-left">{{product?.characteristics?.Name}} </h2>
+		<h2 class="pull-right">${{product?.characteristics?.Price}} USD</h2>
+		<div class="clearfix"></div>
+	</div>
+
+	<div>
+		<div class="pull-left card_image"><img src="https://drive.google.com/uc?export=view&id={{product?.characteristics?.Image}}" style="width:100%" /></div>
+		<div class="pull-right" style="width:600px">
+			<div class="card_characteristic">
+				<h3>General information</h3>
+				<div style="margin-left:10px">
+					<div><span><b>Name:</b>  {{product?.characteristics?.Name}} </span></div>
+					<div><span><b>Capacity:</b>  {{product?.characteristics?.Capacity}} </span></div>
+					<div><span> <b>Reading Speed:</b>  {{product?.characteristics?.ReadingSpeed}} </span></div>
+					<div><span> <b>Recording Speed:</b>  {{product?.characteristics?.RecordingSpeed}} </span></div>
+					<div><span> <b>Energy Consumption:</b>  {{product?.characteristics?.EnergyConsumption}} </span></div>
+					<div><span> <b> MTBF:</b> {{product?.characteristics?.MTBF}} </span></div>
+					<div><span> <b>Form Factor:</b>  {{product?.characteristics?.FormFactor}} </span></div>
+					<div><span> <b>Stability to shock loads: </b> {{product?.characteristics?.StabilityToShockLoads}} </span></div>
+					<div><span> <b>Type of memory cells:</b> {{product?.characteristics?.TypeOfMemoryCells}} </span></div>
+					<div><span> <b>Interface:</b>  {{product?.characteristics?.Interface}} </span></div>
+					<div><span> <b>Drive Type:</b>  {{product?.characteristics?.DriveType}} </span></div>
+					<div><span> <b>Size: </b> {{product?.characteristics?.Size}} </span></div>
+					<div><span> <b>Weight:</b> {{product?.characteristics?.Weight}} </span></div>
+					<div><span> <b>Guarantee:</b>  {{product?.characteristics?.Guarantee}} </span></div>
+				</div>
+			</div>
+			<div>
+				<div [hidden]="!info" class="alert-danger col-md-9 text-center alert_blue margin_top_15">{{info}}</div>
+				<div> <input type="button" class="btn btn-default pull-right button_style" (click)="addProductToCart()" value="add to cart" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+
+

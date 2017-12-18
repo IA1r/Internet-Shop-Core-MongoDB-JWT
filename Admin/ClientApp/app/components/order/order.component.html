@@ -1,0 +1,53 @@
+﻿<div>
+	<div class="card_list pull-left">
+		<div class="col-md-12 margin_bot_15">
+			<div class="col-md-12 cursor hr">
+				<h4 class="text-center">Order List</h4>
+			</div>
+		</div>
+		<div *ngFor="let order of (orderList | sortOrders)" (click)="getOrder(order._Id)" class="hr">
+			<div>
+				<div class="pull-left"><b>ID</b> - #{{order._Id | slice:0:23}} ...</div>
+				<div [hidden]="order.isApprove" class="pull-right"><img src="/images/attention_blue.png" /></div>
+				<div class="clearfix"></div>
+			</div>
+			<div><b>Checkout date</b> - {{order.date | date}}</div>
+		</div>
+	</div>
+
+	<div [hidden]="!order" class="card_order pull-right">
+		<div class="col-md-12">
+			<div class="pull-left"><h3>#{{order?._Id}}</h3></div>
+			<div *ngIf="order?.isApprove" class="pull-right"><h3>Status: <span style="color:#507299">Confirmed</span></h3></div>
+			<div *ngIf="!order?.isApprove" class="pull-right"><h3>Status: <span style="color:#ffd800">Queue</span></h3></div>
+			<div class="clearfix"></div>
+			<hr *ngIf="order?.isApprove" style="border-top: 1px solid #507299" />
+			<hr *ngIf="!order?.isApprove" style="border-top: 1px solid #ffd800" />
+		</div>
+
+		<div class="col-md-12">
+			<div class="col-md-2"><h4>Name: {{order?.user?.name}}</h4> </div>
+			<div class="col-md-3"><h4>Phone: {{order?.user?.phone}}</h4></div>
+			<div class="col-md-4"><h4>Delivery address: {{order?.user?.deliveryAddress}}</h4></div>
+			<div class="col-md-3"><h4>TotalPrice: ${{order?.totalPrice}}</h4></div>
+		</div>
+
+		<div class="col-md-12" *ngFor="let product of order?.products; let i = index" style="margin-top:15px; padding:5px; border:solid 1px">
+			<div class="col-md-3"><img src="https://drive.google.com/uc?export=view&id={{product?.characteristics?.Image}}" style="width:25%" /></div>
+			<div class="col-md-1"></div>
+			<div class="col-md-6">
+				<div><span><b>ID:</b>  {{product?._Id}} </span></div>
+				<div><span><b>Type:</b>  {{product?.type}}</span></div>
+				<div><span><b>Name:</b>  {{product?.characteristics?.Name}} </span></div>
+			</div>
+			<div class="col-md-2" style="margin-top:15px"><h4>${{product?.characteristics?.Price}} USD</h4> </div>
+		</div>
+
+		<div *ngIf="!order?.isApprove" class="col-md-12 margin_top_12">
+			<div class="pull-left"><img src="/images/confirm.png" class="cursor" (click)="confirmOrder(order._Id)" /></div>
+			<div class="pull-right"><img src="/images/decline.png" class="cursor" (click)="deleteOrder(order._Id)" /></div>
+			<div class="clearfix"></div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>

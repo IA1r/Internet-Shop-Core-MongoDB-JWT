@@ -1,0 +1,40 @@
+﻿<div>
+	<div class="card_title">
+		<h2 class="pull-left">{{product?.characteristics?.Name}} </h2>
+		<h2 class="pull-right">${{product?.characteristics?.Price}} USD</h2>
+		<div class="clearfix"></div>
+	</div>
+
+	<div>
+		<div class="pull-left card_image"><img src="https://drive.google.com/uc?export=view&id={{product?.characteristics?.Image}}" style="width:100%" /></div>
+		<div class="pull-right" style="width:600px">
+			<div class="card_characteristic">
+				<h3>General information</h3>
+				<div style="margin-left:10px">
+					<div><span><b>Name:</b>  {{product?.characteristics?.Name}} </span></div>
+					<div><span><b>Memory Type:</b>  {{product?.characteristics?.MemoryType}} </span></div>
+					<div><span> <b>Capacity:</b>  {{product?.characteristics?.Capacity}} </span></div>
+					<div><span> <b>Supply Voltage:</b>  {{product?.characteristics?.SupplyVoltage}} </span></div>
+					<div><span> <b>Frequency:</b>  {{product?.characteristics?.Frequency}} </span></div>
+					<div><span> <b> Radiators on the slats:</b> {{product?.characteristics?.RadiatorsOnTheSlats}} </span></div>
+					<div><span> <b>Throughput:</b>  {{product?.characteristics?.Throughput}} </span></div>
+					<div><span> <b>Timings Scheme: </b> {{product?.characteristics?.TimingsScheme}} </span></div>
+					<div><span> <b>Number of slats:</b> {{product?.characteristics?.NumberOfSlats}} </span></div>
+					<div><span> <b>Appointment:</b>  {{product?.characteristics?.Appointment}} </span></div>
+					<div><span> <b>Buffering:</b>  {{product?.characteristics?.Buffering}} </span></div>
+					<div><span> <b>ECC: </b> {{product?.characteristics?.ECC}} </span></div>
+					<div><span> <b>Guarantee:</b>  {{product?.characteristics?.Guarantee}} </span></div>
+				</div>
+			</div>
+			<div>
+				<div [hidden]="!info" class="alert-danger col-md-9 text-center alert_blue margin_top_15">{{info}}</div>
+				<div> <input type="button" class="btn btn-default pull-right button_style" (click)="addProductToCart()" value="add to cart" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+
+
+

@@ -1,0 +1,117 @@
+﻿<div *ngIf="!IsEdit">
+	<div class="card_title">
+		<h2 class="pull-left">{{product?.characteristics?.Name}} </h2>
+		<h2 class="pull-right">${{product?.characteristics?.Price}} USD</h2>
+		<div class="clearfix"></div>
+	</div>
+
+	<div>
+		<div class="pull-left card_image"><img src="https://drive.google.com/uc?export=view&id={{product?.characteristics?.Image}}" style="width:100%" /></div>
+		<div class="pull-right" style="width:600px">
+			<div class="card_characteristic">
+				<h3>General information</h3>
+				<div style="margin-left:10px">
+					<div><span><b>Name:</b>  {{product?.characteristics?.Name}} </span></div>
+					<div><span><b>Type:</b>  {{product?.type}} </span></div>
+					<div><b>Genre:</b> <span> {{product?.tag}}  </span>	</div>				
+					<div><span> <b>Discription:</b>  {{product?.characteristics?.Discription}} </span></div>
+					<div><span> <b>ReleaseDate:</b>  {{product?.characteristics?.ReleaseDate}} </span></div>
+					<div><span> <b>Developer:</b>  {{product?.characteristics?.Developer}} </span></div>
+				</div>
+			</div>
+			<div class="card_characteristic">
+				<h3>System Requirements</h3>
+				<div style="margin-left:10px">
+					<div><span> <b> OS:</b> {{product?.characteristics?.OS}} </span></div>
+					<div><span> <b>Processor:</b>  {{product?.characteristics?.Processor}} </span></div>
+					<div><span> <b>Memory: </b> {{product?.characteristics?.Memory}} </span></div>
+					<div><span> <b>Graphics:</b> {{product?.characteristics?.Graphics}} </span></div>
+					<div><span> <b>Storage:</b>  {{product?.characteristics?.Storage}} </span></div>
+				</div>
+			</div>
+			<div class="margin_top_15">
+				<div id="successUpdate" class="alert-danger col-md-9 text-center alert_blue" [hidden]="true"></div>
+				<div> <input type="button" class="btn btn-default pull-right button_style" (click)="isEdit(true)" value="Edit" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<div *ngIf="IsEdit" class="margin_top_30">
+	<div>
+		<div><input class="btn button_style btn-default" type="button" value="Update Image" onclick="document.getElementById('imageUpdate').click()" /></div>
+		<input type="file" ng2FileSelect [uploader]="uploader" style="display:none" id="imageUpdate" (change)="updateImg()" />
+
+		<div class="pull-left card_image"><img src="https://drive.google.com/uc?export=view&id={{product?.characteristics?.Image}}" style="width:100%" /></div>
+		<div class="pull-right" style="width:600px">
+			<div class="card_characteristic">
+				<h3>General information</h3>
+				<div style="margin-left:10px;margin-top:25px">
+					<div class="group">
+						<input type="text" class="input_text" name="Name" [(ngModel)]="product.characteristics['Name']" required />
+						<label class="label"> Name </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Type" [(ngModel)]="product.type" required />
+						<label class="label"> Type </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Genre" [(ngModel)]="product.tag" required />
+						<label class="label"> Genre </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Discription" [(ngModel)]="product.characteristics['Discription']" required />
+						<label class="label"> Discription </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="ReleaseDate" [(ngModel)]="product.characteristics['ReleaseDate']" required />
+						<label class="label"> ReleaseDate </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Developer" [(ngModel)]="product.characteristics['Developer']" required />
+						<label class="label"> Developer </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Price" [(ngModel)]="product.characteristics['Price']" required />
+						<label class="label"> Price </label>
+					</div>
+				</div>
+			</div>
+
+			<div class="card_characteristic">
+				<h3>System Requirements</h3>
+				<div style="margin-left:10px;margin-top:25px">
+					<div class="group">
+						<input type="text" class="input_text" name="OS" [(ngModel)]="product.characteristics['OS']" required />
+						<label class="label"> OS </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Processor" [(ngModel)]="product.characteristics['Processor']" required />
+						<label class="label"> Processor </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Memory" [(ngModel)]="product.characteristics['Memory']" required />
+						<label class="label"> Memory </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Graphics" [(ngModel)]="product.characteristics['Graphics']" required />
+						<label class="label"> Graphics </label>
+					</div>
+					<div class="group">
+						<input type="text" class="input_text" name="Storage" [(ngModel)]="product.characteristics['Storage']" required />
+						<label class="label"> Storage </label>
+					</div>
+				</div>
+			</div>
+
+			<div class="margin_top_15">
+				<div> <input type="button" class="btn btn-default pull-right button_style" (click)="cancel()" value="Cancel" /></div>
+				<div> <input type="button" class="btn btn-default pull-right button_style" style="margin-right:20px" (click)="update(product)" value="Save" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+

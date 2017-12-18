@@ -1,0 +1,35 @@
+﻿<div>
+	<div class="card_title">
+		<h2 class="pull-left">{{product?.characteristics?.Name}} </h2>
+		<h2 class="pull-right">${{product?.characteristics?.Price}} USD</h2>
+		<div class="clearfix"></div>
+	</div>
+
+	<div>
+		<div class="pull-left card_image"><img src="https://drive.google.com/uc?export=view&id={{product?.characteristics?.Image}}" style="width:100%" /></div>
+		<div class="pull-right" style="width:600px">
+			<div class="card_characteristic">
+				<h3>General information</h3>
+				<div style="margin-left:10px">
+					<div><span><b>Name:</b>  {{product?.characteristics?.Name}} </span></div>
+					<div><span><b>Genre:</b>  {{product?.characteristics?.Genre}} </span></div>
+					<div><span> <b>Tom:</b>  {{product?.characteristics?.Tom}} </span></div>
+					<div><span> <b>Author:</b>  {{product?.characteristics?.Author}} </span></div>
+					<div><span> <b>ReleaseDate:</b>  {{product?.characteristics?.ReleaseDate}} </span></div>
+					<div><span> <b> Restrictions:</b> {{product?.characteristics?.Restrictions}} </span></div>
+					<div><span> <b>Publisher:</b>  {{product?.characteristics?.Publisher}} </span></div>
+					<div><span> <b>Language:</b>  {{product?.characteristics?.Language}} </span></div>
+					<div><span> <b>Discription: </b> {{product?.characteristics?.Discription}} </span></div>
+				</div>
+			</div>
+			<div>
+				<div [hidden]="!info" class="alert-danger col-md-9 text-center alert_blue margin_top_15">{{info}}</div>
+				<div> <input type="button" class="btn btn-default pull-right button_style" (click)="addProductToCart()" value="add to cart" /></div>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+
+

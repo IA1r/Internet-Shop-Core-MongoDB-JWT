@@ -1,0 +1,27 @@
+﻿<div *ngIf="responseStatus?.success">
+	<div *ngIf="product?.type == 'PC-Game'">
+		<pc-game [product]=product [info]="info" (addProduct)="addProduct($event)"></pc-game>
+	</div>
+
+	<div *ngIf="product?.type == 'Manga'">
+		<manga [product]=product [info]="info" (addProduct)="addProduct($event)"></manga>
+	</div>
+
+	<div *ngIf="product?.type == 'T-shirt'">
+		<t-shirt [product]=product [info]="info" (addProduct)="addProduct($event)"></t-shirt>
+	</div>
+
+	<div *ngIf="product?.type == 'SSD'">
+		<ssd [product]=product [info]="info" (addProduct)="addProduct($event)"></ssd>
+	</div>
+
+	<div *ngIf="product?.type == 'RAM'">
+		<ram [product]=product [info]="info" (addProduct)="addProduct($event)"></ram>
+	</div>
+</div>
+
+<div *ngIf="!responseStatus?.success" class="alert-danger col-md-6 text-center alert_blue">
+	<div>{{responseStatus?.message}}</div>
+</div>
+
+
